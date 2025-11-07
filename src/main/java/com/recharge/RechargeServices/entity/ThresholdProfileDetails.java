@@ -1,6 +1,9 @@
 package com.recharge.RechargeServices.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
@@ -10,22 +13,23 @@ public class ThresholdProfileDetails {
 
     @Id
     @Column(name = "thres_profile_dtls_id")
-    private String thresProfileDtlsId;
+    private String thresholdProfileDetailsId;
 
-    @ManyToOne
-    @JoinColumn(name = "thres_profile_id")
-    private ThresholdProfile thresholdProfile;
+    @Column(name = "thres_profile_id")
+    private String thresholdProfileId;
 
     @Column(name = "group_id")
     private String groupId;
-    @Column(name = "payer_count")
-    private Long payerCount;
-    @Column(name = "payer_amt")
-    private Long payerAmt;
-    @Column(name = "payee_count")
-    private Long payeeCount;
-    @Column(name = "payee_amt")
-    private Long payeeAmt;
 
-    // Getters and Setters are provided by Lombok's @Data
+    @Column(name = "payer_count")
+    private long payerCount;
+
+    @Column(name = "payer_amt")
+    private long payerAmount;
+
+    @Column(name = "payee_count")
+    private long payeeCount;
+
+    @Column(name = "payee_amt")
+    private long payeeAmount;
 }

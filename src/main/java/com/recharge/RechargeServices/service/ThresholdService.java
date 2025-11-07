@@ -1,19 +1,14 @@
 package com.recharge.RechargeServices.service;
 
-import com.recharge.RechargeServices.entity.ThresholdProfile;
 import com.recharge.RechargeServices.entity.ThresholdProfileDetails;
+import com.recharge.RechargeServices.entity.ThresholdsProfile;
 
 import java.util.List;
 
 public interface ThresholdService {
-
-    ThresholdProfile createThresholdProfile(ThresholdProfile thresholdProfile);
-
+    ThresholdsProfile createThresholdProfile(ThresholdsProfile thresholdProfile);
     ThresholdProfileDetails createThresholdProfileDetails(ThresholdProfileDetails thresholdProfileDetails);
-
-    List<ThresholdProfile> getAllThresholdProfiles();
-
+    List<ThresholdsProfile> getAllThresholdProfiles();
     List<ThresholdProfileDetails> getAllThresholdProfileDetails();
-
-    boolean isThresholdExceeded(String userType, String groupId, long amount);
+    boolean isThresholdExceeded(String thresholdProfileId, String groupId, long amount);
 }

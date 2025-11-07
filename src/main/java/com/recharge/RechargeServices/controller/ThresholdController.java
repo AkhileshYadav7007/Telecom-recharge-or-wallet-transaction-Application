@@ -1,7 +1,7 @@
 package com.recharge.RechargeServices.controller;
 
-import com.recharge.RechargeServices.entity.ThresholdProfile;
 import com.recharge.RechargeServices.entity.ThresholdProfileDetails;
+import com.recharge.RechargeServices.entity.ThresholdsProfile;
 import com.recharge.RechargeServices.service.ThresholdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public class ThresholdController {
     private ThresholdService thresholdService;
 
     @PostMapping("/profiles")
-    public ThresholdProfile createThresholdProfile(@RequestBody ThresholdProfile thresholdProfile) {
+    public ThresholdsProfile createThresholdProfile(@RequestBody ThresholdsProfile thresholdProfile) {
         return thresholdService.createThresholdProfile(thresholdProfile);
     }
 
@@ -26,7 +26,7 @@ public class ThresholdController {
     }
 
     @GetMapping("/profiles")
-    public List<ThresholdProfile> getAllThresholdProfiles() {
+    public List<ThresholdsProfile> getAllThresholdProfiles() {
         return thresholdService.getAllThresholdProfiles();
     }
 

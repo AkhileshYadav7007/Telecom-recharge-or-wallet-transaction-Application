@@ -41,23 +41,23 @@ public class JwtTokenUtil {
 
     private String generateToken(String username, long ttlMillis) {
         long exp = System.currentTimeMillis() + ttlMillis;
-        String payload = username + ":" + exp;
+        String payload = username + "." + exp;
         String signature = sign(payload);
-        String token = payload + ":" + signature;
+        String token = payload + "." + signature;
         return Base64.getUrlEncoder().withoutPadding().encodeToString(token.getBytes(StandardCharsets.UTF_8));
     }
 
     public String getUsernameFromToken(String token) {
         String decoded = decode(token);
         if (decoded == null) return null;
-        String[] parts = decoded.split(":");
+        String[] parts = decoded.split("\\.");
         return parts.length >= 1 ? parts[0] : null;
     }
 
     public boolean validateToken(String token) {
         String decoded = decode(token);
         if (decoded == null) return false;
-        String[] parts = decoded.split(":");
+        String[] parts = decoded.split("\\.");
         if (parts.length < 3) return false;
         String username = parts[0];
         long exp;
@@ -67,7 +67,7 @@ public class JwtTokenUtil {
             return false;
         }
         String signature = parts[2];
-        String payload = username + ":" + exp;
+        String payload = username + "." + exp;
         String expectedSig = sign(payload);
         return expectedSig.equals(signature) && System.currentTimeMillis() <= exp;
     }

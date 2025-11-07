@@ -1,24 +1,27 @@
 package com.recharge.RechargeServices.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "itn_channel_users")
+@Data
 public class ChannelUser {
-    //ye class for channel-user
 
     @Id
-    @Column(name = "user_id", length = 20)
+    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "user_name", length = 50)
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "password", length = 300)
     private String password;
 
-    @Column(name = "txn_pin", length = 200)
+    @Column(name = "txn_pin")
     private String txnPin;
 
     @Column(name = "invalid_pin_count")
@@ -27,128 +30,125 @@ public class ChannelUser {
     @Column(name = "invalid_password_count")
     private Integer invalidPasswordCount;
 
-    @Column(name = "category_code", length = 10)
+    @Column(name = "category_code")
     private String categoryCode;
 
-    @Column(name = "user_type", length = 20)
+    @Column(name = "user_type")
     private String userType;
 
-    @Column(name = "first_name", length = 50)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name", length = 100)
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "msisdn", length = 10)
     private String msisdn;
 
-    @Column(name = "status", length = 100)
     private String status;
 
-    @Column(name = "modified_on", nullable = false)
+    @Column(name = "firm_name")
+    private String firmName;
+
+    @Column(name = "alter_msisdn")
+    private String alterMsisdn;
+
+    @Column(name = "email_id")
+    private String emailId;
+
+    private String city;
+
+    private String state;
+
+    private String district;
+
+    private String address;
+
+    private String pan;
+
+    private String pincode;
+
+    @Column(name = "parent_id")
+    private String parentId;
+
+    @Column(name = "owner_id")
+    private String ownerId;
+
+    @Column(name = "thres_profile_id")
+    private String thresProfileId;
+
+    @Column(name = "join_date")
+    private LocalDateTime joinDate;
+
+    @Column(name = "deleted_on")
+    private LocalDateTime deletedOn;
+
+    @Column(name = "modified_on")
     private LocalDateTime modifiedOn;
 
-    public String getUserId() {
-        return userId;
-    }
+    @Column(name = "suspension_reason")
+    private String suspensionReason;
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    @Column(name = "last_login_on")
+    private LocalDateTime lastLoginOn;
 
-    public String getUserName() {
-        return userName;
-    }
+    @Column(name = "first_login")
+    private String firstLogin;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    @Column(name = "suspend_reason")
+    private String suspendReason;
 
-    public String getPassword() {
-        return password;
-    }
+    private String manager;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    @Column(name = "otp_status")
+    private String otpStatus;
 
-    public String getTxnPin() {
-        return txnPin;
-    }
+    @Column(name = "dmt_type")
+    private String dmtType;
 
-    public void setTxnPin(String txnPin) {
-        this.txnPin = txnPin;
-    }
+    @Column(name = "pan_file_path")
+    private String panFilePath;
 
-    public Integer getInvalidPinCount() {
-        return invalidPinCount;
-    }
+    @Column(name = "aadhar_file_path")
+    private String aadharFilePath;
 
-    public void setInvalidPinCount(Integer invalidPinCount) {
-        this.invalidPinCount = invalidPinCount;
-    }
+    @Column(name = "gst_number")
+    private String gstNumber;
 
-    public Integer getInvalidPasswordCount() {
-        return invalidPasswordCount;
-    }
+    private String aadhaar;
 
-    public void setInvalidPasswordCount(Integer invalidPasswordCount) {
-        this.invalidPasswordCount = invalidPasswordCount;
-    }
+    @Column(name = "incometax_proof_name")
+    private String incometaxProofName;
 
-    public String getCategoryCode() {
-        return categoryCode;
-    }
+    @Column(name = "incometax_proof_id")
+    private String incometaxProofId;
 
-    public void setCategoryCode(String categoryCode) {
-        this.categoryCode = categoryCode;
-    }
+    @Column(name = "incometax_proof_file")
+    private String incometaxProofFile;
 
-    public String getUserType() {
-        return userType;
-    }
+    @Column(name = "servicetax_proof_name")
+    private String servicetaxProofName;
 
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
+    @Column(name = "servicetax_proof_id")
+    private String servicetaxProofId;
 
-    public String getFirstName() {
-        return firstName;
-    }
+    @Column(name = "servicetax_proof_file")
+    private String servicetaxProofFile;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    @Column(name = "id_proof_name")
+    private String idProofName;
 
-    public String getLastName() {
-        return lastName;
-    }
+    @Column(name = "id_proof_id")
+    private String idProofId;
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    @Column(name = "id_proof_file")
+    private String idProofFile;
 
-    public String getMsisdn() {
-        return msisdn;
-    }
+    @Column(name = "address_proof_name")
+    private String addressProofName;
 
-    public void setMsisdn(String msisdn) {
-        this.msisdn = msisdn;
-    }
+    @Column(name = "address_proof_id")
+    private String addressProofId;
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getModifiedOn() {
-        return modifiedOn;
-    }
-
-    public void setModifiedOn(LocalDateTime modifiedOn) {
-        this.modifiedOn = modifiedOn;
-    }
+    @Column(name = "address_proof_file")
+    private String addressProofFile;
 }

@@ -1,69 +1,61 @@
 package com.recharge.RechargeServices.entity;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "itn_wallet")
+@Data
 public class Wallet {
-    // ye class for wallet, it has wallet-id, user-id, balance, status, modified-on
 
     @Id
-    @Column(name = "wallet_id", length = 64)
+    @Column(name = "wallet_id")
     private String walletId;
 
-    public String getWalletId() {
-        return walletId;
-    }
-
-    public void setWalletId(String walletId) {
-        this.walletId = walletId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Long balance) {
-        this.balance = balance;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getModifiedOn() {
-        return modifiedOn;
-    }
-
-    public void setModifiedOn(LocalDateTime modifiedOn) {
-        this.modifiedOn = modifiedOn;
-    }
-
-    @Column(name = "user_id", length = 20)
+    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "balance")
-    private Long balance;
+    @Column(name = "user_type")
+    private String userType;
 
-    @Column(name = "status", length = 2)
+    private String msisdn;
+
+    @Column(name = "wallet_type")
+    private String walletType;
+
+    @Column(name = "prev_balance")
+    private long prevBalance;
+
+    private long balance;
+
+    @Column(name = "net_credit")
+    private long netCredit;
+
+    @Column(name = "net_debit")
+    private long netDebit;
+
+    @Column(name = "last_transation_type")
+    private String lastTransactionType;
+
+    @Column(name = "last_transation_id")
+    private String lastTransactionId;
+
     private String status;
 
-    @Column(name = "modified_on")
-    private LocalDateTime modifiedOn;
+    @Column(name = "wallet_limit")
+    private long walletLimit;
 
+    @Column(name = "last_transation_on")
+    private LocalDateTime lastTransactionOn;
 
+    @Column(name = "operator_Code")
+    private String operatorCode;
+
+    @Column(name = "first_transation_on")
+    private LocalDateTime firstTransactionOn;
 }

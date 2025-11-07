@@ -1,112 +1,155 @@
 package com.recharge.RechargeServices.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "itn_transaction_header")
+@Data
 public class TransactionHeader {
-    // ye class for transaction-header,
-    // it has transfer-id, transfer-on, payer-user-id, payee-user-id,
 
     @Id
-    @Column(name = "transfer_id", length = 20)
+    @Column(name = "transfer_id")
     private String transferId;
 
     @Column(name = "transfer_on")
     private LocalDateTime transferOn;
 
-    @Column(name = "payer_user_id", length = 20)
+    @Column(name = "payer_user_id")
     private String payerUserId;
 
-    @Column(name = "payee_user_id", length = 20)
+    @Column(name = "payer_account_id")
+    private String payerAccountId;
+
+    @Column(name = "payee_user_id")
     private String payeeUserId;
 
-    @Column(name = "requested_value")
-    private Long requestedValue;
+    @Column(name = "payee_account_id")
+    private String payeeAccountId;
 
-    @Column(name = "transfer_status", length = 20)
+    @Column(name = "requested_value")
+    private long requestedValue;
+
+    @Column(name = "error_code")
+    private String errorCode;
+
+    @Column(name = "transfer_status")
     private String transferStatus;
 
-    @Column(name = "created_on")
-    private LocalDateTime createdOn;
+    @Column(name = "service_type")
+    private String serviceType;
 
-    @Column(name = "modified_on", nullable = false)
+    @Column(name = "product_id")
+    private String productId;
+
+    @Column(name = "service_provider")
+    private String serviceProvider;
+
+    @Column(name = "product_type")
+    private String productType;
+
+    @Column(name = "recharge_type")
+    private String rechargeType;
+
+    @Column(name = "reconciliation_done")
+    private String reconciliationDone;
+
+    @Column(name = "reconciliation_date")
+    private String reconciliationDate;
+
+    @Column(name = "reconciliation_by")
+    private String reconciliationBy;
+
+    @Column(name = "details_1")
+    private String details1;
+
+    @Column(name = "details_2")
+    private String details2;
+
+    @Column(name = "details_3")
+    private String details3;
+
+    @Column(name = "details_4")
+    private String details4;
+
+    @Column(name = "details_5")
+    private String details5;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "created_on")
+    private String createdOn;
+
+    @Column(name = "modified_by")
+    private String modifiedBy;
+
+    @Column(name = "modified_on")
     private LocalDateTime modifiedOn;
 
-    public String getTransferId() {
-        return transferId;
-    }
+    private String remarks;
 
-    public void setTransferId(String transferId) {
-        this.transferId = transferId;
-    }
+    @Column(name = "total_commission")
+    private long totalCommission;
 
-    public LocalDateTime getTransferOn() {
-        return transferOn;
-    }
+    @Column(name = "admn_srvc_chrg")
+    private long adminServiceCharge;
 
-    public void setTransferOn(LocalDateTime transferOn) {
-        this.transferOn = transferOn;
-    }
+    @Column(name = "dist_srvc_chrg")
+    private long distributorServiceCharge;
 
-    public String getPayerUserId() {
-        return payerUserId;
-    }
+    @Column(name = "rtlr_srvc_chrg")
+    private long retailerServiceCharge;
 
-    public void setPayerUserId(String payerUserId) {
-        this.payerUserId = payerUserId;
-    }
+    @Column(name = "total_service_charge")
+    private long totalServiceCharge;
 
-    public String getPayeeUserId() {
-        return payeeUserId;
-    }
+    @Column(name = "operator_txn_id")
+    private String operatorTransactionId;
 
-    public void setPayeeUserId(String payeeUserId) {
-        this.payeeUserId = payeeUserId;
-    }
+    @Column(name = "aggregator_txn_id")
+    private String aggregatorTransactionId;
 
-    public Long getRequestedValue() {
-        return requestedValue;
-    }
+    @Column(name = "details_6")
+    private String details6;
 
-    public void setRequestedValue(Long requestedValue) {
-        this.requestedValue = requestedValue;
-    }
+    @Column(name = "details_7")
+    private String details7;
 
-    public String getTransferStatus() {
-        return transferStatus;
-    }
+    @Column(name = "details_8")
+    private String details8;
 
-    public void setTransferStatus(String transferStatus) {
-        this.transferStatus = transferStatus;
-    }
+    @Column(name = "details_9")
+    private String details9;
 
-    public LocalDateTime getCreatedOn() {
-        return createdOn;
-    }
+    @Column(name = "details_10")
+    private String details10;
 
-    public void setCreatedOn(LocalDateTime createdOn) {
-        this.createdOn = createdOn;
-    }
+    @Column(name = "tax_details_1")
+    private long taxDetails1;
 
-    public LocalDateTime getModifiedOn() {
-        return modifiedOn;
-    }
+    @Column(name = "tax_details_2")
+    private long taxDetails2;
 
-    public void setModifiedOn(LocalDateTime modifiedOn) {
-        this.modifiedOn = modifiedOn;
-    }
+    @Column(name = "tax_details_3")
+    private long taxDetails3;
 
-    @PrePersist
-    protected void onCreate() {
-        createdOn = LocalDateTime.now();
-        modifiedOn = LocalDateTime.now();
-        transferOn = LocalDateTime.now();
-    }
+    @Column(name = "tax_details_4")
+    private long taxDetails4;
 
-    @PreUpdate
-    protected void onUpdate() {
-        modifiedOn = LocalDateTime.now();
-    }
+    @Column(name = "tax_details_5")
+    private long taxDetails5;
+
+    @Column(name = "tax_details_6")
+    private long taxDetails6;
+
+    @Column(name = "tax_details_7")
+    private long taxDetails7;
+
+
 }

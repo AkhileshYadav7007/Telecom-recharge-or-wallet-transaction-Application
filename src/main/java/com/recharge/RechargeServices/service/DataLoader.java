@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.Date;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -35,7 +35,7 @@ public class DataLoader implements CommandLineRunner {
         if (userRepository.findById(testUserId).isEmpty()) {
             ChannelUser user = new ChannelUser();
             user.setUserId(testUserId);
-            user.setUserName("root");
+            user.setUserName("root ");
             user.setPassword(passwordEncoder.encode("229009"));
             user.setFirstName("Root");
             user.setLastName("User");
@@ -48,11 +48,10 @@ public class DataLoader implements CommandLineRunner {
         // create a wallet for root
         if (walletRepository.findByUserId(testUserId).stream().findFirst().isEmpty()) {
             Wallet w = new Wallet();
-            w.setWalletId(UUID.randomUUID().toString());
+            w.setWalletId("W" + new Date().getTime());
             w.setUserId(testUserId);
             w.setBalance(1000L);
             w.setStatus("A");
-            w.setModifiedOn(LocalDateTime.now());
             walletRepository.save(w);
         }
 
@@ -73,11 +72,10 @@ public class DataLoader implements CommandLineRunner {
         // create a wallet for USER2
         if (walletRepository.findByUserId(testUserId2).stream().findFirst().isEmpty()) {
             Wallet w = new Wallet();
-            w.setWalletId(UUID.randomUUID().toString());
+            w.setWalletId("W" + new Date().getTime());
             w.setUserId(testUserId2);
             w.setBalance(500L);
             w.setStatus("A");
-            w.setModifiedOn(LocalDateTime.now());
             walletRepository.save(w);
         }
     }

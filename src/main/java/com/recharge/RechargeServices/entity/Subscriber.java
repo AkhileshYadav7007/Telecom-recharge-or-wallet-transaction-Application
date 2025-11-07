@@ -16,7 +16,7 @@ public class Subscriber {
 
     @ManyToOne
     @JoinColumn(name = "thres_profile_id")
-    private ThresholdProfile thresholdProfile;
+    private ThresholdsProfile thresholdProfile;
 
     @Column(name = "first_name")
     private String firstName;

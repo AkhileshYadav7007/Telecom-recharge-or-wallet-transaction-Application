@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.3.3</version>
 		<relativePath/>
 	</parent>
 
@@ -15,7 +15,7 @@
 	<artifactId>RechargeServices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>RechargeServices</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for Spring Boot (Java 24)</description>
 
 	<properties>
 		<java.version>21</java.version>
@@ -59,19 +59,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Testing -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- JWT -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -91,17 +78,30 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Swagger / OpenAPI -->
+		<!-- Swagger -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.5.0</version>
 		</dependency>
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- ✅ Updated compiler plugin for JDK 21 -->
+			<!-- ✅ Compiler for Java 24 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -135,5 +135,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

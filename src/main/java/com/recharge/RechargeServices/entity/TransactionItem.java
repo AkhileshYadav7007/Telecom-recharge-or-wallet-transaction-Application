@@ -1,51 +1,54 @@
 package com.recharge.RechargeServices.entity;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Data
 @Entity
 @Table(name = "itn_transaction_items")
+@Data
 public class TransactionItem {
-    // ye class for transaction-item,
 
     @EmbeddedId
-    private TransactionItemKey id;
+    private TransactionItemId id;
 
-    @Column(name = "transfer_on", nullable = false)
+    @Column(name = "transfer_on")
     private LocalDateTime transferOn;
 
-    @Column(name = "transfer_status", length = 20)
+    @Column(name = "transfer_status")
     private String transferStatus;
 
-    @Column(name = "user_type", length = 20)
+    @Column(name = "user_type")
     private String userType;
 
-    @Column(name = "user_category", length = 50)
+    @Column(name = "user_category")
     private String userCategory;
 
     @Column(name = "approved_value")
-    private Long approvedValue;
+    private long approvedValue;
 
-    @Column(name = "service_type", length = 50)
+    @Column(name = "service_type")
     private String serviceType;
 
-    @Column(name = "product_id", length = 30)
+    @Column(name = "product_id")
     private String productId;
 
-    @Column(name = "service_provider", length = 75)
+    @Column(name = "service_provider")
     private String serviceProvider;
 
-    @Column(name = "product_type", length = 20)
+    @Column(name = "product_type")
     private String productType;
 
-    @Column(name = "recharge_type", length = 20)
+    @Column(name = "recharge_type")
     private String rechargeType;
 
     @Column(name = "previous_balance")
-    private Long previousBalance;
+    private long previousBalance;
 
     @Column(name = "post_balance")
-    private Long postBalance;
+    private long postBalance;
 }

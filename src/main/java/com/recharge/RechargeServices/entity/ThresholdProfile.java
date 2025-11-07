@@ -1,25 +1,40 @@
 package com.recharge.RechargeServices.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "itn_thresholds_profiles")
+@Table(name = "itn_thresholds_profile_dtls")
 @Data
 public class ThresholdProfile {
 
     @Id
-    @Column(name = "thres_profile_id")
-    private String thresProfileId;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "user_type")
-    private String userType;
-    @Column(name = "status")
-    private String status;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-    // Getters and Setters are provided by Lombok's @Data
+    private String detailName;
+
+    @Column(name = "group_id")
+    private String groupId;
+
+    @Column(name = "payer_count")
+    private Long payerCount;
+
+    @Column(name = "payer_amt")
+    private Long payerAmt;
+
+    @Column(name = "payee_count")
+    private Long payeeCount;
+
+    @Column(name = "payee_amt")
+    private Long payeeAmt;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "threshold_profile_id",
+            referencedColumnName = "thres_profile_id",
+            nullable = false
+    )
+    private ThresholdsProfile thresholdProfile;
 }

@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ThresholdProfileDetailsRepository extends JpaRepository<ThresholdProfileDetails, String> {
-    Optional<ThresholdProfileDetails> findByThresholdProfile_UserTypeAndGroupId(String userType, String groupId);
+    Optional<ThresholdProfileDetails> findByThresholdProfileIdAndGroupId(String thresholdProfileId, String groupId);
 }

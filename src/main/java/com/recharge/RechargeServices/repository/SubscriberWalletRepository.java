@@ -5,7 +5,9 @@ import com.recharge.RechargeServices.entity.SubscriberWallet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface SubscriberWalletRepository extends JpaRepository<SubscriberWallet, Long> {
-    SubscriberWallet findBySubscriber(Subscriber subscriber);
+    List<SubscriberWallet> findBySubscriber(Subscriber subscriber);
 }

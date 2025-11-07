@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class SubscriberServiceImpl implements SubscriberService {
+    //this service will handle subscriber related operations like create, update, delete, get subscriber details
 
     @Autowired
     private SubscriberRepository subscriberRepository;
